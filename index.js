@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: process.env.CORS_ORIGIN,
     // origin: "http://e00b-223-233-64-221.ngrok.io",
   })
 );
