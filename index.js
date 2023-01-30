@@ -22,12 +22,11 @@ cloudinary.config({
 const app = express();
 
 let origin = "http://localhost:3000";
-if (process.env.NODE_ENV.trim() === "production") {
+if (process.env.NODE_ENV === "production ") {
   origin = process.env.CORS_ORIGIN;
 }
-console.log("origin: ", origin);
-console.log(process.env.CORS_ORIGIN);
-
+console.log("environment: ", origin);
+console.log("NODE_ENV: ", process.env.NODE_ENV);
 //middlewares
 app.use(express.json({ limit: "10mb" })); // it will fix payload too large 413 error
 app.use(morgan("common"));
