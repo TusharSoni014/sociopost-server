@@ -6,6 +6,15 @@ const userRouter = require("./routers/userRouter");
 const dotevn = require("dotenv");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+
+//process.env.CORS_ORIGIN,
+let origin = "http://localhost:3000";
+if (process.env.NODE_ENV.trim() === "production") {
+  origin = process.env.CORS_ORIGIN;
+}
+console.log('origin: ',origin)
+console.log(process.env.CORS_ORIGIN)
+
 const cors = require("cors");
 const cloudinary = require("cloudinary").v2;
 dotevn.config("./.env");
@@ -25,8 +34,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: process.env.CORS_ORIGIN,
-    // origin: "http://e00b-223-233-64-221.ngrok.io",
+    origin,
   })
 );
 
