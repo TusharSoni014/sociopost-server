@@ -8,6 +8,9 @@
     "start": "NODE_ENV=production  node ./index.js",
     "dev": "NODE_ENV=development nodemon"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
